@@ -6,12 +6,15 @@ public class ContaPoupanca extends Conta {
 
     @Override
     public void setLimite(double novoLimite) {
-        if (novoLimite > 1000)
-            System.out.println("Erro. Limite máximo de R$1000");
-        else if (novoLimite < 100)
-            System.out.println("Erro. Limite mínimo de R$100");
-        else
+        if (novoLimite > 1000) {
+            throw new IllegalArgumentException(
+                    String.format("Limite Máximo de R$1000.00\tLimite Fornecido: R$%.2f", novoLimite));
+        } else if (novoLimite < 100) {
+            throw new IllegalArgumentException(
+                    String.format("Limite Mínimo de R$100.00\tLimite Fornecido: R$%.2f", novoLimite));
+        } else {
             limite = novoLimite;
+        }
     }
 
     @Override

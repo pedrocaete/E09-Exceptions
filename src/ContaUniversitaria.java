@@ -6,12 +6,15 @@ public class ContaUniversitaria extends Conta {
 
     @Override
     public void setLimite(double novoLimite) {
-        if (novoLimite > 500)
-            System.out.println("Erro. Limite máximo de R$500");
-        else if (novoLimite < 0)
-            System.out.println("Erro. Limite máximo de R$0");
-        else
+        if (novoLimite > 500) {
+            throw new IllegalArgumentException(
+                    String.format("Limite Máximo de R$500.00\tLimite Fornecido: R$%.2f", novoLimite));
+        } else if (novoLimite < 0) {
+            throw new IllegalArgumentException(
+                    String.format("Limite Mínimo de R$0.00\tLimite Fornecido: R$%.2f", novoLimite));
+        } else {
             limite = novoLimite;
+        }
     }
 
     @Override

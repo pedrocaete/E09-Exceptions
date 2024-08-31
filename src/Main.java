@@ -10,17 +10,11 @@ public class Main {
         Conta contapf = new ContaCorrente(1006660.0, 123456, "001", 500.0, pessoa2);
         Conta contapoup = new ContaPoupanca(10000666.0, 5789, "002", 200000.0, empresa2);
         Conta contauni = new ContaUniversitaria(10000666.0, 5789, "002", 200000.0, empresa2);
-
-        try {
-            contapj.depositar(100);
-            contapj.sacar(50);
-            //contapj.sacar(500);
-            //contapj.depositar(-1);
-            //contapj.sacar(-10);
-        } catch (ValorNegativoException e) {
-            System.out.println(e.getMessage());
-        } catch (LimiteExtravazadoException e) {
-            System.out.println(e.getMessage());
-        }
+        
+        //contapoup.setLimite(0.0);
+        //contapoup.setLimite(1100);
+        //contauni.setLimite(-15);
+        //contauni.setLimite(600);
+        contapj.setLimite(-110);
     }
 }
